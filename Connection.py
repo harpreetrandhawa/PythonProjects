@@ -41,6 +41,7 @@ def mysql_server(server, query, save_as=None):
 #************************MySQL Server*********************#
 
 def gsheet_connect(gsheet_key):
+    """Connect to Google Spreadsheet using gsheet_id"""
     gc = pygsheets.authorize(service_file='path.json', no_cache=True)
     ss = gc.open_by_key(gsheet_key)
     print "Google Sheet Connected!"
