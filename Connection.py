@@ -8,7 +8,7 @@ import pygsheets
 def mysql_server(server, query, save_as=None):
     """Connect MySQL Server, Need server_name,query or query path, file's name to save_result which is Optional"""
     try:
-        filepath = 'E:\\Proc_Reports\\credentials\\' + server + '.csv'
+        filepath = 'Path' + server + '.csv'
 
         print 'Checking Connections...'
         credentials = [line for line in open(filepath, 'r')]
@@ -41,7 +41,7 @@ def mysql_server(server, query, save_as=None):
 #************************MySQL Server*********************#
 
 def gsheet_connect(gsheet_key):
-    gc = pygsheets.authorize(service_file='E:\\Proc_Reports\\wadicredentials.json', no_cache=True)
+    gc = pygsheets.authorize(service_file='path.json', no_cache=True)
     ss = gc.open_by_key(gsheet_key)
     print "Google Sheet Connected!"
     return ss
