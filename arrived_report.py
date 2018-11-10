@@ -16,7 +16,7 @@ def ksa_arrival_report():
     mysql_server('nm_sourcing', "query", 'KSA_Arrival_yesterday')
 
     if len(indv) >= 1:
-        print 'Sending mail...'
+        print("Sending Mail")
         htmlrow1 = ""
         htmlrow2 = ""
         htmlrow3 = ""
@@ -110,7 +110,7 @@ def ksa_arrival_report():
         server.login('user_id', "password")
         text = msg.as_string()
         server.sendmail(fromaddr, toaddr + tocc, text)
-        print 'Mail Sent!!!...'
+        print("Mail Sent...")
         server.quit()
 
 #************************DXB Arrival Report*********************#
@@ -122,7 +122,7 @@ def dxb_arrival_report():
     mysql_server('nm_sourcing', "query", 'DXB_Arrival_yesterday')
 
     if len(indv) >= 1:
-        print 'Sending mail...'
+        print('Sending Mail')
         htmlrow1 = ""
         htmlrow2 = ""
         htmlrow3 = ""
@@ -217,17 +217,16 @@ def dxb_arrival_report():
         server.login('user_id', "Password")
         text = msg.as_string()
         server.sendmail(fromaddr, toaddr + tocc, text)
-        print 'Mail Sent!!!...'
+        print('Mail Sent!!!...')
         server.quit()
 
 def main():
     try:
         ksa_arrival_report()
-        print "ksa_arrival_report Sent!!!"
         dxb_arrival_report()
-        print "dxb_arrival_report Sent!!!"
-    except Exception, Err:
-        print Err
+        
+    except Exception as Err:
+        print(Err)
 
 if __name__ == "__main__":
     main()
